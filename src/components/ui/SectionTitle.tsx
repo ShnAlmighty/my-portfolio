@@ -59,7 +59,9 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
       
       {subtitle && (
         <motion.p 
-          className="text-lg sm:text-xl lg:text-2xl text-text-secondary max-w-2xl lg:max-w-3xl mx-auto leading-relaxed"
+          className={`text-lg sm:text-xl lg:text-2xl text-text-secondary max-w-2xl lg:max-w-3xl leading-relaxed ${alignStyles[align]} ${
+            align === 'center' ? 'mx-auto' : align === 'right' ? 'ml-auto' : ''
+          }`}
           variants={subtitleVariants}
         >
           {subtitle}

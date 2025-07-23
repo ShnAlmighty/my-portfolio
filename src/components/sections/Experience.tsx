@@ -40,33 +40,58 @@ export const Experience: React.FC = () => {
   };
 
   const contentVariants = {
-    hidden: { opacity: 0, height: 0 },
+    hidden: { 
+      opacity: 0, 
+      height: 0,
+      marginTop: 0,
+      paddingTop: 0,
+      borderTopWidth: 0
+    },
     visible: {
       opacity: 1,
       height: 'auto',
-      transition: { duration: 0.3 },
+      marginTop: 24,
+      paddingTop: 24,
+      borderTopWidth: 1,
+      transition: { 
+        duration: 0.4,
+        ease: "easeInOut"
+      },
     },
+    exit: {
+      opacity: 0,
+      height: 0,
+      marginTop: 0,
+      paddingTop: 0,
+      borderTopWidth: 0,
+      transition: { 
+        duration: 0.3,
+        ease: "easeInOut"
+      },
+    }
   };
 
   return (
     <Section id="experience" className="bg-background-light">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
+      <div className="flex flex-col items-center justify-center w-full">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-6xl mx-auto w-full"
+        >
         <SectionTitle
           title="Professional Experience"
           subtitle="My journey through different roles and the impact I've made"
           align="center"
         />
 
-        <div className="relative">
+        <div className="relative max-w-5xl mx-auto">
           {/* Timeline line */}
           <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-primary-600/30"></div>
 
-          <div className="space-y-8">
+          <div className="space-y-12">
             {experiences.map((experience, index) => {
               const isExpanded = expandedItems.includes(experience.id);
               const duration = calculateYearsOfExperience(experience.startDate, experience.endDate);
@@ -89,7 +114,7 @@ export const Experience: React.FC = () => {
                   <div className={`w-full md:w-5/12 ml-12 md:ml-0 ${isEven ? 'md:pr-8' : 'md:pl-8'}`}>
                     <Card 
                       variant="hover" 
-                      className="cursor-pointer"
+                      className="cursor-pointer overflow-hidden"
                       onClick={() => toggleExpanded(experience.id)}
                     >
                       {/* Header */}
@@ -140,14 +165,15 @@ export const Experience: React.FC = () => {
                       </div>
 
                       {/* Expanded content */}
-                      <AnimatePresence>
+                      <AnimatePresence mode="wait">
                         {isExpanded && (
                           <motion.div
                             variants={contentVariants}
                             initial="hidden"
                             animate="visible"
-                            exit="hidden"
-                            className="mt-6 pt-6 border-t border-background"
+                            exit="exit"
+                            className="overflow-hidden border-background"
+                            style={{ borderTopStyle: 'solid' }}
                           >
                             {/* Key achievements */}
                             <div className="mb-6">
@@ -195,13 +221,13 @@ export const Experience: React.FC = () => {
 
         {/* Summary stats */}
         <motion.div 
-          className="mt-16 text-center"
+          className="mt-16 text-center max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
             <div>
               <div className="text-3xl font-bold text-primary-500 mb-2">
                 {experiences.length}
@@ -228,7 +254,8 @@ export const Experience: React.FC = () => {
             </div>
           </div>
         </motion.div>
-      </motion.div>
+        </motion.div>
+      </div>
     </Section>
   );
 };

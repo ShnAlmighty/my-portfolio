@@ -87,39 +87,45 @@ export const Projects: React.FC = () => {
   if (!projects || projects.length === 0) {
     return (
       <Section id="projects">
-        <SectionTitle
-          title="Featured Projects"
-          subtitle="A showcase of my work in AI/ML, full-stack development, IoT, and automation"
-          align="center"
-        />
-        <DataFallback
-          type="empty"
-          title="No Projects Available"
-          message="Projects are currently being updated. Please check back soon!"
-          className="min-h-[400px]"
-        />
+        <div className="flex flex-col items-center justify-center w-full">
+          <div className="max-w-7xl mx-auto w-full">
+            <SectionTitle
+              title="Featured Projects"
+              subtitle="A showcase of my work in AI/ML, full-stack development, IoT, and automation"
+              align="center"
+            />
+            <DataFallback
+              type="empty"
+              title="No Projects Available"
+              message="Projects are currently being updated. Please check back soon!"
+              className="min-h-[400px]"
+            />
+          </div>
+        </div>
       </Section>
     );
   }
 
   return (
     <Section id="projects">
-      <ErrorBoundary
-        fallback={
-          <DataFallback
-            type="error"
-            title="Failed to Load Projects"
-            message="There was an error loading the projects. Please refresh the page."
-            className="min-h-[400px]"
-          />
-        }
-      >
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+      <div className="flex flex-col items-center justify-center w-full">
+        <ErrorBoundary
+          fallback={
+            <DataFallback
+              type="error"
+              title="Failed to Load Projects"
+              message="There was an error loading the projects. Please refresh the page."
+              className="min-h-[400px]"
+            />
+          }
         >
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="max-w-7xl mx-auto w-full"
+          >
           <SectionTitle
             title="Featured Projects"
             subtitle="A showcase of my work in AI/ML, full-stack development, IoT, and automation"
@@ -128,7 +134,7 @@ export const Projects: React.FC = () => {
 
         {/* Category Filter */}
         <motion.div 
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-3 mb-16 max-w-4xl mx-auto"
           variants={itemVariants}
         >
           {categories.map((category) => (
@@ -156,7 +162,7 @@ export const Projects: React.FC = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -251,7 +257,7 @@ export const Projects: React.FC = () => {
         {/* Show More/Less Button */}
         {filteredProjects.length > 6 && (
           <motion.div 
-            className="text-center mt-12"
+            className="text-center mt-16"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -268,13 +274,13 @@ export const Projects: React.FC = () => {
 
         {/* Project Stats */}
         <motion.div 
-          className="mt-16 text-center"
+          className="mt-20 text-center max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
             <div>
               <div className="text-3xl font-bold text-primary-500 mb-2">
                 {projects.length}
@@ -312,7 +318,7 @@ export const Projects: React.FC = () => {
 
         {/* Call to Action */}
         <motion.div 
-          className="text-center mt-12"
+          className="text-center mt-16 max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -329,8 +335,9 @@ export const Projects: React.FC = () => {
             Let&apos;s Work Together
           </Button>
         </motion.div>
-      </motion.div>
-      </ErrorBoundary>
+          </motion.div>
+        </ErrorBoundary>
+      </div>
     </Section>
   );
 };
