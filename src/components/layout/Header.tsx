@@ -75,27 +75,27 @@ export const Header: React.FC = () => {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background py-3 shadow-md' : 'bg-transparent py-5'
+        isScrolled ? 'bg-background py-4 shadow-md' : 'bg-transparent py-6'
       }`}
       initial="initial"
       animate="animate"
       variants={headerVariants}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
         <div className="flex items-center justify-between">
           {/* Logo/Name */}
-          <Link href="/" className="text-xl font-bold text-text-primary hover:text-primary-500 transition-colors">
+          <Link href="/" className="text-xl sm:text-2xl font-bold text-text-primary hover:text-primary-500 transition-colors">
             {personalInfo.name.split(' ')[0]}
             <span className="text-primary-500">{personalInfo.name.split(' ')[1]}</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                className={`px-3 py-2 lg:px-4 lg:py-2 text-sm lg:text-base font-medium rounded-md transition-colors relative whitespace-nowrap ${
                   activeSection === item.href.substring(1)
                     ? 'text-primary-500'
                     : 'text-text-secondary hover:text-text-primary'
@@ -104,7 +104,7 @@ export const Header: React.FC = () => {
                 {item.label}
                 {activeSection === item.href.substring(1) && (
                   <motion.div
-                    className="h-1 bg-primary-500 mt-1 rounded-full"
+                    className="absolute bottom-0 left-0 right-0 h-1 bg-primary-500 rounded-full"
                     layoutId="activeSection"
                     transition={{ duration: 0.3 }}
                   />
@@ -114,12 +114,12 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Social Links - Desktop */}
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden md:flex items-center gap-2 lg:gap-3">
             <a
               href={personalInfo.socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-text-secondary hover:text-text-primary transition-colors"
+              className="p-2 lg:p-3 text-text-secondary hover:text-text-primary transition-colors rounded-md hover:bg-background-light"
               aria-label="GitHub"
             >
               <Github size={20} />
@@ -128,7 +128,7 @@ export const Header: React.FC = () => {
               href={personalInfo.socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-text-secondary hover:text-text-primary transition-colors"
+              className="p-2 lg:p-3 text-text-secondary hover:text-text-primary transition-colors rounded-md hover:bg-background-light"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
@@ -146,7 +146,7 @@ export const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-text-primary rounded-md hover:bg-background-light transition-colors"
+            className="md:hidden p-3 text-text-primary rounded-md hover:bg-background-light transition-colors"
             onClick={toggleMenu}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -159,19 +159,19 @@ export const Header: React.FC = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 top-[60px] bg-background z-40 md:hidden"
+            className="fixed inset-0 top-[72px] bg-background z-40 md:hidden"
             initial="closed"
             animate="open"
             exit="closed"
             variants={mobileMenuVariants}
           >
-            <div className="flex flex-col h-full p-4">
-              <nav className="flex flex-col space-y-2 py-8">
+            <div className="flex flex-col h-full px-6 py-4">
+              <nav className="flex flex-col space-y-1 py-6">
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className={`px-4 py-3 text-lg font-medium rounded-md transition-colors ${
+                    className={`px-6 py-4 text-lg font-medium rounded-lg transition-colors ${
                       activeSection === item.href.substring(1)
                         ? 'bg-background-light text-primary-500'
                         : 'text-text-secondary hover:bg-background-light hover:text-text-primary'
@@ -184,12 +184,12 @@ export const Header: React.FC = () => {
               </nav>
 
               {/* Social Links - Mobile */}
-              <div className="mt-auto flex items-center justify-center space-x-4 py-6">
+              <div className="mt-auto flex items-center justify-center space-x-6 py-8 border-t border-background-light">
                 <a
                   href={personalInfo.socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 text-text-secondary hover:text-text-primary transition-colors"
+                  className="p-4 text-text-secondary hover:text-text-primary transition-colors rounded-lg hover:bg-background-light"
                   aria-label="GitHub"
                 >
                   <Github size={24} />
@@ -198,7 +198,7 @@ export const Header: React.FC = () => {
                   href={personalInfo.socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 text-text-secondary hover:text-text-primary transition-colors"
+                  className="p-4 text-text-secondary hover:text-text-primary transition-colors rounded-lg hover:bg-background-light"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={24} />
@@ -207,7 +207,7 @@ export const Header: React.FC = () => {
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 text-text-secondary hover:text-text-primary transition-colors"
+                  className="p-4 text-text-secondary hover:text-text-primary transition-colors rounded-lg hover:bg-background-light"
                   aria-label="Resume"
                 >
                   <FileText size={24} />

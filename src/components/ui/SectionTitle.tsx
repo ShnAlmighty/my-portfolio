@@ -49,9 +49,9 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
   };
 
   return (
-    <div className={`mb-12 ${alignStyles[align]} ${className}`}>
+    <div className={`mb-12 sm:mb-16 lg:mb-20 ${alignStyles[align]} ${className}`}>
       <motion.h2 
-        className="text-3xl md:text-4xl font-bold text-text-primary mb-4"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4 sm:mb-6"
         variants={titleVariants}
       >
         {title}
@@ -59,7 +59,7 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
       
       {subtitle && (
         <motion.p 
-          className="text-lg text-text-secondary max-w-2xl mx-auto"
+          className="text-lg sm:text-xl lg:text-2xl text-text-secondary max-w-2xl lg:max-w-3xl mx-auto leading-relaxed"
           variants={subtitleVariants}
         >
           {subtitle}
@@ -67,9 +67,9 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
       )}
       
       <motion.div 
-        className="h-1 w-20 bg-primary-600 mt-4"
+        className="h-1 w-16 sm:w-20 lg:w-24 bg-primary-600 mt-6 sm:mt-8"
         initial={{ width: 0 }}
-        whileInView={{ width: 80 }}
+        whileInView={{ width: align === 'center' ? 96 : 80 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
         style={{ marginLeft: align === 'center' ? 'auto' : 0, marginRight: align === 'center' ? 'auto' : 0 }}

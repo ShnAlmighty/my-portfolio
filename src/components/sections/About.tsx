@@ -82,12 +82,13 @@ export const About: React.FC = () => {
   };
 
   return (
-    <Section id="about">
+    <Section id="about" className="py-20 lg:py-32">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
+        className="max-w-7xl mx-auto"
       >
         <SectionTitle
           title="About Me"
@@ -95,14 +96,14 @@ export const About: React.FC = () => {
           align="center"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-24 lg:mb-32 mt-16 lg:mt-20">
           {/* Professional Summary */}
           <motion.div variants={itemVariants}>
-            <Card className="h-full">
-              <h3 className="text-2xl font-bold text-text-primary mb-4">
+            <Card className="h-full p-8 lg:p-10">
+              <h3 className="text-2xl lg:text-3xl font-bold text-text-primary mb-8">
                 Professional Summary
               </h3>
-              <div className="space-y-4 text-text-secondary leading-relaxed">
+              <div className="space-y-8 text-text-secondary leading-relaxed text-base lg:text-lg">
                 <p>
                   I&apos;m a passionate Full Stack Engineer with over {totalExperience} years of experience 
                   building scalable web applications and AI-powered solutions. Currently serving as 
@@ -125,11 +126,11 @@ export const About: React.FC = () => {
 
           {/* Personal Touch */}
           <motion.div variants={itemVariants}>
-            <Card className="h-full">
-              <h3 className="text-2xl font-bold text-text-primary mb-4">
+            <Card className="h-full p-8 lg:p-10">
+              <h3 className="text-2xl lg:text-3xl font-bold text-text-primary mb-8">
                 Beyond the Code
               </h3>
-              <div className="space-y-4 text-text-secondary leading-relaxed">
+              <div className="space-y-8 text-text-secondary leading-relaxed text-base lg:text-lg">
                 <p>
                   When I&apos;m not coding, I enjoy exploring the latest developments in AI and 
                   machine learning. I&apos;m always eager to learn new technologies and apply 
@@ -151,26 +152,26 @@ export const About: React.FC = () => {
 
         {/* Key Highlights Grid */}
         <motion.div variants={itemVariants}>
-          <h3 className="text-2xl font-bold text-text-primary text-center mb-8">
+          <h3 className="text-2xl lg:text-3xl font-bold text-text-primary text-center mb-16 lg:mb-20">
             Key Highlights
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {highlights.map((highlight, index) => (
               <motion.div
                 key={highlight.title}
                 variants={cardVariants}
                 custom={index}
               >
-                <Card variant="hover" className="text-center h-full">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-primary-600/20 rounded-full text-primary-500">
+                <Card variant="hover" className="text-center h-full p-8 lg:p-10">
+                  <div className="flex justify-center mb-8">
+                    <div className="p-5 bg-primary-600/20 rounded-full text-primary-500">
                       {highlight.icon}
                     </div>
                   </div>
-                  <h4 className="text-lg font-semibold text-text-primary mb-2">
+                  <h4 className="text-lg lg:text-xl font-semibold text-text-primary mb-4">
                     {highlight.title}
                   </h4>
-                  <div className="text-2xl font-bold text-primary-500 mb-2">
+                  <div className="text-2xl lg:text-3xl font-bold text-primary-500 mb-4">
                     {highlight.title === 'Years of Experience' ? (
                       <AnimatedCounter end={totalExperience} suffix="+" />
                     ) : highlight.title === 'AI/ML Projects' ? (
@@ -181,7 +182,7 @@ export const About: React.FC = () => {
                       highlight.value
                     )}
                   </div>
-                  <p className="text-text-secondary text-sm">
+                  <p className="text-text-secondary text-sm lg:text-base leading-relaxed">
                     {highlight.description}
                   </p>
                 </Card>
@@ -192,16 +193,16 @@ export const About: React.FC = () => {
 
         {/* Call to Action */}
         <motion.div 
-          className="text-center mt-12"
+          className="text-center mt-20 lg:mt-28"
           variants={itemVariants}
         >
-          <p className="text-text-secondary mb-6">
+          <p className="text-text-secondary text-lg lg:text-xl mb-10 lg:mb-12 max-w-2xl mx-auto leading-relaxed">
             Interested in working together? Let&apos;s discuss your next project.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 justify-center">
             <motion.a
               href="#contact"
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white rounded-md font-medium hover:bg-primary-700 transition-colors"
+              className="inline-flex items-center justify-center px-10 py-5 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors text-base lg:text-lg shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -209,7 +210,7 @@ export const About: React.FC = () => {
             </motion.a>
             <motion.a
               href="#projects"
-              className="inline-flex items-center justify-center px-6 py-3 border border-text-muted text-text-primary rounded-md font-medium hover:bg-background-light transition-colors"
+              className="inline-flex items-center justify-center px-10 py-5 border border-text-muted text-text-primary rounded-lg font-medium hover:bg-background-light transition-colors text-base lg:text-lg hover:border-primary-500"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

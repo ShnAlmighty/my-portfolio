@@ -32,13 +32,13 @@ export const Section: React.FC<SectionProps> = ({
   return (
     <motion.section
       id={id}
-      className={`py-16 md:py-24 ${fullHeight ? 'min-h-screen' : ''} ${className}`}
+      className={`py-16 sm:py-20 md:py-24 lg:py-28 ${fullHeight ? 'min-h-screen' : ''} ${className}`}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={sectionVariants}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
         {children}
       </div>
     </motion.section>
