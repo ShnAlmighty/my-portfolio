@@ -3,3 +3,5 @@ export { default as Footer } from './Footer';
 export { default as Layout } from './Layout';
 export { default as ScrollToTop } from './ScrollToTop';
 export { default as PageTransition } from './PageTransition';
+export { default as NetworkStatus } from './NetworkStatus';
+export { default as ServiceWorkerRegistration } from './ServiceWorkerRegistration';

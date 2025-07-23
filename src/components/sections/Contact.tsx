@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github as GitHub, Linkedin as LinkedIn, MessageCircle, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github as GitHub, Linkedin as LinkedIn, MessageCircle, CheckCircle, AlertCircle, Wifi, WifiOff } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import { Section, SectionTitle, Card, Button } from '../ui';
+import { Section, SectionTitle, Card, Button, LoadingSpinner } from '../ui';
 import { Form, Input, Textarea } from '../ui/Form';
 import { personalInfo } from '@/data/personalInfo';
 
@@ -22,7 +22,7 @@ interface FormErrors {
   message?: string;
 }
 
-type FormStatus = 'idle' | 'sending' | 'success' | 'error';
+type FormStatus = 'idle' | 'sending' | 'success' | 'error' | 'network-error' | 'validation-error';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -87,6 +87,15 @@ export const Contact: React.FC = () => {
     e.preventDefault();
     
     if (!validateForm()) {
+      setStatus('validation-error');
+      setTimeout(() => setStatus('idle'), 3000);
+      return;
+    }
+
+    // Check network connectivity
+    if (!navigator.onLine) {
+      setStatus('network-error');
+      setTimeout(() => setStatus('idle'), 5000);
       return;
     }
 
@@ -103,25 +112,41 @@ export const Contact: React.FC = () => {
       };
 
       // Note: You'll need to replace these with your actual EmailJS credentials
-      // For now, we'll simulate the email sending
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // For now, we'll simulate the email sending with potential failure
+      await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // Simulate random failure for demonstration
+          if (Math.random() > 0.8) {
+            reject(new Error('Simulated network error'));
+          } else {
+            resolve(true);
+          }
+        }, 2000);
+      });
       
-      // Uncomment and configure when you have EmailJS set up:
-      // await emailjs.send(
-      //   'YOUR_SERVICE_ID',
-      //   'YOUR_TEMPLATE_ID',
-      //   templateParams,
-      //   'YOUR_PUBLIC_KEY'
-      // );
+      // Use environment variables for EmailJS configuration
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
+      );
 
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
+      setErrors({});
       
       // Reset success message after 5 seconds
       setTimeout(() => setStatus('idle'), 5000);
     } catch (error) {
       console.error('Error sending email:', error);
-      setStatus('error');
+      
+      // Determine error type
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        setStatus('network-error');
+      } else {
+        setStatus('error');
+      }
       
       // Reset error message after 5 seconds
       setTimeout(() => setStatus('idle'), 5000);
@@ -264,6 +289,17 @@ export const Contact: React.FC = () => {
               </h3>
 
               {/* Status Messages */}
+              {status === 'sending' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 p-4 bg-blue-500/20 text-blue-500 rounded-lg mb-6"
+                >
+                  <LoadingSpinner size="sm" />
+                  <span>Sending your message...</span>
+                </motion.div>
+              )}
+
               {status === 'success' && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
@@ -272,6 +308,28 @@ export const Contact: React.FC = () => {
                 >
                   <CheckCircle size={20} />
                   <span>Message sent successfully! I&apos;ll get back to you soon.</span>
+                </motion.div>
+              )}
+
+              {status === 'validation-error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 p-4 bg-yellow-500/20 text-yellow-600 rounded-lg mb-6"
+                >
+                  <AlertCircle size={20} />
+                  <span>Please fix the errors above before submitting.</span>
+                </motion.div>
+              )}
+
+              {status === 'network-error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 p-4 bg-orange-500/20 text-orange-500 rounded-lg mb-6"
+                >
+                  <WifiOff size={20} />
+                  <span>No internet connection. Please check your network and try again.</span>
                 </motion.div>
               )}
 

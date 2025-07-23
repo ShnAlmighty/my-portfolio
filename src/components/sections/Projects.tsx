@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Calendar, Star, Filter } from 'lucide-react';
-import { Section, SectionTitle, Card, Badge, Button } from '../ui';
+import { Section, SectionTitle, Card, Badge, Button, ErrorBoundary, DataFallback } from '../ui';
 import { projects } from '@/data/projects';
 import { formatDate } from '@/utils/dataUtils';
 
@@ -83,19 +83,48 @@ export const Projects: React.FC = () => {
     },
   };
 
-  return (
-    <Section id="projects">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
+  // Handle empty projects data
+  if (!projects || projects.length === 0) {
+    return (
+      <Section id="projects">
         <SectionTitle
           title="Featured Projects"
           subtitle="A showcase of my work in AI/ML, full-stack development, IoT, and automation"
           align="center"
         />
+        <DataFallback
+          type="empty"
+          title="No Projects Available"
+          message="Projects are currently being updated. Please check back soon!"
+          className="min-h-[400px]"
+        />
+      </Section>
+    );
+  }
+
+  return (
+    <Section id="projects">
+      <ErrorBoundary
+        fallback={
+          <DataFallback
+            type="error"
+            title="Failed to Load Projects"
+            message="There was an error loading the projects. Please refresh the page."
+            className="min-h-[400px]"
+          />
+        }
+      >
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <SectionTitle
+            title="Featured Projects"
+            subtitle="A showcase of my work in AI/ML, full-stack development, IoT, and automation"
+            align="center"
+          />
 
         {/* Category Filter */}
         <motion.div 
@@ -301,6 +330,7 @@ export const Projects: React.FC = () => {
           </Button>
         </motion.div>
       </motion.div>
+      </ErrorBoundary>
     </Section>
   );
 };

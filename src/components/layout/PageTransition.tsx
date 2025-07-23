@@ -19,7 +19,7 @@ export const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
       initial="hidden"
       animate="enter"
       exit="exit"
-      transition={{ duration: 0.3, type: 'easeInOut' }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
       {children}
     </motion.div>

@@ -6,7 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true next build",
+    "optimize-images": "node scripts/optimize-images.js",
+    "deploy": "node scripts/deploy.js",
+    "deploy:vercel": "vercel --prod",
+    "deploy:preview": "vercel"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -18,6 +23,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@next/bundle-analyzer": "^15.4.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

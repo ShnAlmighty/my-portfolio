@@ -1,15 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useAnimation } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
+import { useAnimation, useInView } from 'framer-motion';
 
 /**
  * Hook for scroll-triggered animations
  */
 export const useScrollAnimation = (threshold = 0.1) => {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold });
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (inView) {

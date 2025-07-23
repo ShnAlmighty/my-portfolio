@@ -42,10 +42,6 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({
       opacity: 1,
       y: 0,
       rotateX: 0,
-      transition: {
-        duration,
-        ease: [0.4, 0, 0.2, 1],
-      },
     },
   };
 

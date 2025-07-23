@@ -1,8 +1,7 @@
+# robots.txt for shantanupatnaik.dev
+
 User-agent: *
 Allow: /
 
 # Sitemaps
 Sitemap: https://shantanupatnaik.dev/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 1

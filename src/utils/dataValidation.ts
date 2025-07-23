@@ -59,12 +59,14 @@ export const validateEducation = (data: Education): boolean => {
 };
 
 // Data completeness checker
-export const checkDataCompleteness = () => {
+export const checkDataCompleteness = async () => {
   const issues: string[] = [];
 
   // Check if all required data files exist and have content
   try {
-    const { personalInfo, experiences, projects, skills, education } = require('../data');
+    // Use dynamic import instead of require
+    const data = await import('../data');
+    const { personalInfo, experiences, projects, skills, education } = data;
 
     if (!validatePersonalInfo(personalInfo)) {
       issues.push('Personal information is incomplete');
@@ -109,7 +111,7 @@ export const checkDataCompleteness = () => {
         }
       });
     }
-  } catch (error) {
+  } catch (_) {
     issues.push('Error loading data files');
   }
 
@@ -120,9 +122,11 @@ export const checkDataCompleteness = () => {
 };
 
 // Data statistics
-export const getDataStatistics = () => {
+export const getDataStatistics = async () => {
   try {
-    const { experiences, projects, skills, education } = require('../data');
+    // Use dynamic import instead of require
+    const data = await import('../data');
+    const { experiences, projects, skills, education } = data;
 
     return {
       totalExperiences: experiences?.length || 0,
@@ -137,7 +141,7 @@ export const getDataStatistics = () => {
         ...skills?.map((s: Skill) => s.name) || [],
       ]).size,
     };
-  } catch (error) {
+  } catch (_) {
     return {
       totalExperiences: 0,
       totalProjects: 0,

@@ -25,7 +25,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
 }) => {
   const [count, setCount] = useState(start);
   const ref = React.useRef(null);
-  const inView = useInView(ref, { threshold: 0.3, once: true });
+  const inView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (!inView) return;

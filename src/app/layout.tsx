@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { StructuredData } from "@/components/seo";
+import { ErrorBoundary } from "@/components/ui";
+import NetworkStatus from "@/components/layout/NetworkStatus";
+import ServiceWorkerRegistration from "@/components/layout/ServiceWorkerRegistration";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -110,7 +113,11 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Shantanu Portfolio" />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        {children}
+        <ErrorBoundary>
+          {children}
+        </ErrorBoundary>
+        <NetworkStatus />
+        <ServiceWorkerRegistration />
       </body>
     </html>
   );

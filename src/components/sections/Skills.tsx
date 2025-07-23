@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Database, Cloud, Cpu, Wrench, Star, TrendingUp } from 'lucide-react';
-import { Section, SectionTitle, Card, Badge } from '../ui';
+import { Section, SectionTitle, Card, Badge, ErrorBoundary, DataFallback } from '../ui';
 import { skills } from '@/data/skills';
 import { groupSkillsByCategory } from '@/utils/dataUtils';
 
@@ -106,19 +106,48 @@ export const Skills: React.FC = () => {
     );
   };
 
-  return (
-    <Section id="skills" className="bg-background-light">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
+  // Handle empty skills data
+  if (!skills || skills.length === 0) {
+    return (
+      <Section id="skills" className="bg-background-light">
         <SectionTitle
           title="Technical Skills"
           subtitle="Technologies and tools I use to bring ideas to life"
           align="center"
         />
+        <DataFallback
+          type="empty"
+          title="No Skills Data Available"
+          message="Skills information is currently being updated."
+          className="min-h-[400px]"
+        />
+      </Section>
+    );
+  }
+
+  return (
+    <Section id="skills" className="bg-background-light">
+      <ErrorBoundary
+        fallback={
+          <DataFallback
+            type="error"
+            title="Failed to Load Skills"
+            message="There was an error loading the skills data."
+            className="min-h-[400px]"
+          />
+        }
+      >
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <SectionTitle
+            title="Technical Skills"
+            subtitle="Technologies and tools I use to bring ideas to life"
+            align="center"
+          />
 
         {/* Trending Skills */}
         <motion.div variants={itemVariants} className="mb-16">
@@ -293,7 +322,8 @@ export const Skills: React.FC = () => {
             ))}
           </div>
         </motion.div>
-      </motion.div>
+        </motion.div>
+      </ErrorBoundary>
     </Section>
   );
 };
