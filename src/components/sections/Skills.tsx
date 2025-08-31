@@ -152,7 +152,7 @@ export const Skills: React.FC = () => {
 
         {/* Trending Skills */}
         <motion.div variants={itemVariants} className="mb-16">
-          <div className="flex items-center justify-center gap-2 mb-8" style={{marginBottom: '30px', marginTop: '-40px'}}>
+          <div className="flex items-center justify-center gap-2 mb-8" style={{marginBottom: '30px', marginTop: '-40px', marginLeft: '-30px'}}>
             <TrendingUp className="text-primary-500" size={20} />
             <h3 className="text-xl font-semibold text-text-primary">
               Current Expertise

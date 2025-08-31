@@ -97,7 +97,7 @@ export const About: React.FC = () => {
             align="center"
           />
 
-          <div className="flex flex-col items-center justify-center w-full" style={{marginLeft: '120px'}}>
+          <div className="flex flex-col items-center justify-center w-full" style={{marginLeft: '100px'}}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-20 lg:mb-28 mt-16 lg:mt-20 max-w-4xl mx-auto w-full place-items-center">
               {/* Professional Summary */}
               <motion.div variants={itemVariants} className="flex justify-center w-full">

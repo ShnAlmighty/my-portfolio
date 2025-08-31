@@ -53,19 +53,19 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
   titleStyle = {marginLeft: '300px', marginTop: '60px', marginBottom: '60px'}
 
   if(title == 'Featured Projects'){
-    titleStyle = {marginLeft: '280px', marginTop: '150px', marginBottom: '60px'};
+    titleStyle = {marginLeft: '280px', marginTop: '200px', marginBottom: '60px'};
   }
   if(title == 'Professional Experience'){
-    titleStyle = {marginRight: '100px', marginTop: '150px', marginBottom: '60px'};
+    titleStyle = {marginRight: '150px', marginTop: '200px', marginBottom: '60px'};
   }
   if(title == 'About Me'){
-    titleStyle = {marginLeft: '260px', marginTop: '150px', marginBottom: '60px'};
+    titleStyle = {marginLeft: '220px', marginTop: '150px', marginBottom: '60px'};
   }
   if(title == 'Technical Skills'){
-    titleStyle = {marginLeft: '50px', marginTop: '150px', marginBottom: '60px'};
+    titleStyle = {marginLeft: '5px', marginTop: '150px', marginBottom: '60px'};
   }
   if(title == 'Education & Learning'){
-    titleStyle = {marginLeft: '1px', marginTop: '150px', marginBottom: '60px'};
+    titleStyle = {marginRight: '90px', marginTop: '150px', marginBottom: '60px'};
   }
   if(title == 'Get In Touch'){
     titleStyle = {marginLeft: '230px', marginTop: '150px', marginBottom: '60px'};
@@ -77,16 +77,16 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
     subTitleStyle = {marginLeft: '370px', marginTop: '20px', marginBottom: '100px'};
   }
   if(title == 'About Me'){
-    subTitleStyle = {marginLeft: '380px', marginTop: '20px', marginBottom: '100px'};
+    subTitleStyle = {marginLeft: '350px', marginTop: '20px', marginBottom: '100px'};
   }
   if(title == 'Professional Experience'){
-    subTitleStyle = {marginLeft: '140px', marginTop: '20px', marginBottom: '100px'};
+    subTitleStyle = {marginLeft: '110px', marginTop: '20px', marginBottom: '100px'};
   }
   if(title == 'Technical Skills'){
-    subTitleStyle = {marginLeft: '270px', marginTop: '20px', marginBottom: '90px'};
+    subTitleStyle = {marginLeft: '240px', marginTop: '20px', marginBottom: '90px'};
   }
   if(title == 'Education & Learning'){
-    subTitleStyle = {marginLeft: '230px', marginTop: '20px', marginBottom: '100px'};
+    subTitleStyle = {marginLeft: '190px', marginTop: '20px', marginBottom: '100px'};
   }
   if(title == 'Get In Touch'){
     subTitleStyle = {marginLeft: '490px', marginTop: '20px', marginBottom: '100px'};
