@@ -16,7 +16,7 @@ export const Hero: React.FC = () => {
   // Different titles to cycle through - memoized to prevent re-renders
   const titles = useMemo(() => [
     'Full Stack Engineer',
-    'AI/ML Specialist',
+    'AI Specialist',
     'DevOps Engineer',
     'Backend Developer',
     'System Architect',
@@ -117,6 +117,7 @@ export const Hero: React.FC = () => {
           <motion.p
             className="text-lg md:text-xl text-text-secondary mb-4"
             variants={itemVariants}
+            style={{marginBottom: '-40px'}}
           >
             Hello, I&apos;m
           </motion.p>
@@ -151,6 +152,7 @@ export const Hero: React.FC = () => {
           <motion.p
             className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed"
             variants={itemVariants}
+            style={{marginLeft: '90px'}}
           >
             {personalInfo.summary}
           </motion.p>
@@ -159,6 +161,7 @@ export const Hero: React.FC = () => {
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
             variants={itemVariants}
+            style={{padding: '40px'}}
           >
             <Button
               href="#contact"

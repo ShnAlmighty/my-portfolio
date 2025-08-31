@@ -37,7 +37,7 @@ export const SOCIAL_LINKS = {
 // Professional focus areas
 export const FOCUS_AREAS = [
   'Full Stack Development',
-  'AI/ML Systems',
+  'AI Systems',
   'DevOps & Infrastructure',
   'System Architecture',
   'Backend Development',
@@ -55,7 +55,7 @@ export const CURRENT_STATUS = {
   PREFERRED_ROLES: [
     'Senior Full Stack Engineer',
     'Lead Backend Engineer',
-    'AI/ML Engineer',
+    'AI Engineer',
     'DevOps Engineer',
     'System Architect',
     'Technical Lead',
@@ -72,7 +72,7 @@ export const EXPERTISE_LEVELS = {
 // Industry experience
 export const INDUSTRY_EXPERIENCE = [
   'SaaS Platforms',
-  'AI/ML Applications',
+  'AI Applications',
   'E-commerce',
   'Social Media',
   'Automation Tools',

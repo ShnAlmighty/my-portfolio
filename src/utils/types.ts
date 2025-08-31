@@ -43,7 +43,7 @@ export interface Project {
   title: string;
   description: string;
   technologies: string[];
-  category: 'ai-ml' | 'fullstack' | 'iot' | 'automation';
+  category: 'ai-ml' | 'system' | 'iot' | 'automation' | 'backend';
   githubUrl?: string;
   liveUrl?: string;
   imageUrl?: string;

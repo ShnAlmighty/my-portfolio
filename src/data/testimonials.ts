@@ -20,7 +20,7 @@ export const testimonials: Testimonial[] = [
     name: 'Team Lead',
     position: 'Engineering Manager',
     company: 'Brandie',
-    content: 'Shantanu consistently delivers high-quality solutions and has been instrumental in scaling our AI systems. His expertise in backend architecture and AI/ML has been invaluable to our team.',
+    content: 'Shantanu consistently delivers high-quality solutions and has been instrumental in scaling our AI systems. His expertise in backend architecture and AI has been invaluable to our team.',
     rating: 5,
     date: '2024-01',
   },

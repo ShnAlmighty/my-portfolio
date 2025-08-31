@@ -152,7 +152,7 @@ export const Skills: React.FC = () => {
 
         {/* Trending Skills */}
         <motion.div variants={itemVariants} className="mb-16">
-          <div className="flex items-center justify-center gap-2 mb-8">
+          <div className="flex items-center justify-center gap-2 mb-8" style={{marginBottom: '30px', marginTop: '-40px'}}>
             <TrendingUp className="text-primary-500" size={20} />
             <h3 className="text-xl font-semibold text-text-primary">
               Current Expertise
@@ -165,12 +165,13 @@ export const Skills: React.FC = () => {
                 variants={skillVariants}
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center gap-2 px-4 py-2 bg-primary-600/20 text-primary-500 rounded-full font-medium"
+                style={{marginBottom: '30px'}}
               >
                 <Star size={14} fill="currentColor" />
                 {skill.name}
                 {skill.yearsOfExperience && (
-                  <span className="text-xs opacity-75">
-                    {skill.yearsOfExperience}y
+                  <span className="text-xs opacity-75" style={{padding: '5px'}}>
+                    {skill.yearsOfExperience}
                   </span>
                 )}
               </motion.div>
@@ -255,6 +256,7 @@ export const Skills: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
+          style={{marginBottom: '30px', marginTop: '50px'}}
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
@@ -300,10 +302,10 @@ export const Skills: React.FC = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <h4 className="text-lg font-semibold text-text-primary mb-4">
+          <h4 className="text-lg font-semibold text-text-primary mb-4" style={{marginLeft: '50px', marginBottom: '30px'}}>
             Proficiency Levels
           </h4>
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-6" >
             {Object.entries(proficiencyConfig).map(([level, config]) => (
               <div key={level} className="flex items-center gap-2">
                 <div className="flex items-center gap-1">

@@ -129,19 +129,22 @@ export const Header: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 lg:p-3 text-text-secondary hover:text-text-primary transition-colors rounded-md hover:bg-background-light"
+              style={{marginLeft: '30px'}}
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </a>
-            <Button
-              href="/resume.pdf"
-              variant="ghost"
-              size="sm"
-              icon={<FileText size={16} />}
-              external
-            >
-              Resume
-            </Button>
+            <div style={{marginTop: '5px', marginLeft: '30px', marginRight: '-160px'}}>
+              <Button
+                href="/resume.pdf"
+                variant="ghost"
+                size="sm"
+                icon={<FileText size={16} />}
+                external
+              >
+                Resume
+              </Button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}

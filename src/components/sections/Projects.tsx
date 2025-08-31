@@ -7,22 +7,24 @@ import { Section, SectionTitle, Card, Badge, Button, ErrorBoundary, DataFallback
 import { projects } from '@/data/projects';
 import { formatDate } from '@/utils/dataUtils';
 
-type ProjectCategory = 'all' | 'ai-ml' | 'fullstack' | 'iot' | 'automation';
+type ProjectCategory = 'all' | 'ai-ml' | 'system' | 'iot' | 'automation' | 'backend';
 
 const categoryLabels: Record<ProjectCategory, string> = {
   all: 'All Projects',
-  'ai-ml': 'AI/ML',
-  fullstack: 'Full Stack',
+  'ai-ml': 'AI',
+  system: 'System',
   iot: 'IoT',
   automation: 'Automation',
+  backend: 'Backend'
 };
 
 const categoryIcons: Record<ProjectCategory, React.ReactNode> = {
   all: <Filter size={16} />,
   'ai-ml': '🤖',
-  fullstack: '💻',
+  system: '💻',
   iot: '🔗',
   automation: '⚡',
+  backend: '💾',
 };
 
 export const Projects: React.FC = () => {
@@ -92,7 +94,7 @@ export const Projects: React.FC = () => {
             <div className="mb-12 mt-8">
               <SectionTitle
                 title="Featured Projects"
-                subtitle="A showcase of my work in AI/ML, full-stack development, IoT, and automation"
+                subtitle="A showcase of my work in AI, full-stack development, IoT, and automation"
                 align="center"
               />
             </div>
@@ -131,7 +133,7 @@ export const Projects: React.FC = () => {
           <div className="mb-12">
             <SectionTitle
               title="Featured Projects"
-              subtitle="A showcase of my work in AI/ML, full-stack development, IoT, and automation"
+              subtitle="A showcase of my work in AI, full-stack development, IoT, and automation"
               align="center"
             />
           </div>
@@ -140,6 +142,7 @@ export const Projects: React.FC = () => {
         <motion.div 
           className="flex flex-wrap justify-center gap-3 mb-20 mt-8 max-w-4xl mx-auto"
           variants={itemVariants}
+          style={{marginLeft: '300px', marginBottom: '50px', marginTop: '-50px'}}
         >
           {categories.map((category) => (
             <motion.button
@@ -168,6 +171,7 @@ export const Projects: React.FC = () => {
             key={activeCategory}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12"
             variants={containerVariants}
+            style={{marginLeft: '220px'}}
             initial="hidden"
             animate="visible"
             exit="hidden"
@@ -213,9 +217,11 @@ export const Projects: React.FC = () => {
                   <div className="mb-8 mt-4">
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, idx) => (
-                        <Badge key={idx} variant="outline" size="sm">
-                          {tech}
-                        </Badge>
+                        <div key={`div_tech_custom_${idx}`} style={{padding: '1px', marginTop: '1px'}}>
+                          <Badge key={idx} variant="outline" size="sm">
+                            {tech}
+                          </Badge>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -223,16 +229,20 @@ export const Projects: React.FC = () => {
                   {/* Project Links */}
                   <div className="flex items-center gap-3 mt-auto pt-4">
                     {project.githubUrl && (
-                      <Button
-                        href={project.githubUrl}
-                        variant="ghost"
-                        size="sm"
-                        icon={<Github size={16} />}
-                        external
-                        className="flex-1"
+                      <div  
+                      style={{padding: '1px', marginTop: '10px'}}
                       >
-                        Code
-                      </Button>
+                        <Button
+                          href={project.githubUrl}
+                          variant="ghost"
+                          size="sm"
+                          icon={<Github size={16} />}
+                          external
+                          className="flex-1"
+                        >
+                          Code
+                        </Button>
+                      </div>
                     )}
                     {project.liveUrl && (
                       <Button
@@ -247,7 +257,7 @@ export const Projects: React.FC = () => {
                       </Button>
                     )}
                     {!project.githubUrl && !project.liveUrl && (
-                      <div className="flex-1 text-center text-text-muted text-sm py-2">
+                      <div className="flex-1 text-center text-text-muted text-sm py-2" style={{marginTop: '10px'}}>
                         Private Project
                       </div>
                     )}
@@ -263,6 +273,7 @@ export const Projects: React.FC = () => {
           <motion.div 
             className="text-center mt-20 mb-8"
             initial={{ opacity: 0 }}
+            style={{marginLeft: '220px', marginTop: '50px'}}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
@@ -281,6 +292,7 @@ export const Projects: React.FC = () => {
           className="mt-24 mb-12 text-center max-w-4xl mx-auto py-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          style={{marginLeft: '300px', marginTop: '70px'}}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
@@ -306,7 +318,7 @@ export const Projects: React.FC = () => {
                 {projects.filter(p => p.category === 'ai-ml').length}
               </div>
               <div className="text-text-secondary text-sm">
-                AI/ML Projects
+                AI Projects
               </div>
             </div>
             <div className="py-4">
@@ -328,16 +340,18 @@ export const Projects: React.FC = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <p className="text-text-secondary mb-8 mt-4">
+          <p className="text-text-secondary mb-8 mt-4"  style={{marginLeft: '520px', marginRight: '-300px', marginTop: '70px'}}>
             Interested in collaborating on a project?
           </p>
-          <Button
-            href="#contact"
-            variant="primary"
-            size="lg"
-          >
-            Let&apos;s Work Together
-          </Button>
+          <div  style={{marginLeft: '520px', marginRight: '-320px', marginTop: '20px'}}>
+            <Button
+              href="#contact"
+              variant="primary"
+              size="lg"
+            >
+              Let&apos;s Work Together
+            </Button>
+          </div>
         </motion.div>
           </motion.div>
         </ErrorBoundary>

@@ -44,13 +44,13 @@ export const skills: Skill[] = [
   {
     name: 'C++',
     category: 'languages',
-    proficiency: 'intermediate',
+    proficiency: 'advanced',
     yearsOfExperience: 2,
   },
   {
     name: 'Java',
     category: 'languages',
-    proficiency: 'intermediate',
+    proficiency: 'advanced',
     yearsOfExperience: 2,
   },
 
@@ -180,7 +180,7 @@ export const skills: Skill[] = [
   {
     name: 'Neo4J',
     category: 'databases',
-    proficiency: 'intermediate',
+    proficiency: 'expert',
     yearsOfExperience: 2,
   },
   {
@@ -280,7 +280,7 @@ export const skills: Skill[] = [
   {
     name: 'Llama',
     category: 'ai-ml',
-    proficiency: 'intermediate',
+    proficiency: 'advanced',
     yearsOfExperience: 1,
   },
   {

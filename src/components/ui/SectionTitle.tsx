@@ -48,13 +48,15 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
     }
   };
 
-  let titleStyle = {marginLeft: '300px', marginTop: '60px', marginBottom: '60px'};
+  let titleStyle = {};
+
+  titleStyle = {marginLeft: '300px', marginTop: '60px', marginBottom: '60px'}
 
   if(title == 'Featured Projects'){
     titleStyle = {marginLeft: '280px', marginTop: '150px', marginBottom: '60px'};
   }
   if(title == 'Professional Experience'){
-    titleStyle = {marginLeft: '260px', marginTop: '150px', marginBottom: '60px'};
+    titleStyle = {marginRight: '100px', marginTop: '150px', marginBottom: '60px'};
   }
   if(title == 'About Me'){
     titleStyle = {marginLeft: '260px', marginTop: '150px', marginBottom: '60px'};
@@ -69,7 +71,8 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
     titleStyle = {marginLeft: '230px', marginTop: '150px', marginBottom: '60px'};
   }
 
-  let subTitleStyle = {marginLeft: '250px', marginTop: '20px', marginBottom: '20px'};
+  let subTitleStyle = {};
+  subTitleStyle = {marginLeft: '250px', marginTop: '20px', marginBottom: '20px'};
   if(title == 'Featured Projects') {
     subTitleStyle = {marginLeft: '370px', marginTop: '20px', marginBottom: '100px'};
   }
@@ -77,7 +80,7 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
     subTitleStyle = {marginLeft: '380px', marginTop: '20px', marginBottom: '100px'};
   }
   if(title == 'Professional Experience'){
-    subTitleStyle = {marginLeft: '330px', marginTop: '20px', marginBottom: '100px'};
+    subTitleStyle = {marginLeft: '140px', marginTop: '20px', marginBottom: '100px'};
   }
   if(title == 'Technical Skills'){
     subTitleStyle = {marginLeft: '270px', marginTop: '20px', marginBottom: '90px'};

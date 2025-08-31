@@ -22,7 +22,7 @@ export const About: React.FC = () => {
     },
     {
       icon: <Brain size={24} />,
-      title: 'AI/ML Projects',
+      title: 'AI Projects',
       value: '10+',
       description: 'AI systems and integrations',
     },
@@ -97,7 +97,7 @@ export const About: React.FC = () => {
             align="center"
           />
 
-          <div className="flex flex-col items-center justify-center w-full">
+          <div className="flex flex-col items-center justify-center w-full" style={{marginLeft: '120px'}}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-20 lg:mb-28 mt-16 lg:mt-20 max-w-4xl mx-auto w-full place-items-center">
               {/* Professional Summary */}
               <motion.div variants={itemVariants} className="flex justify-center w-full">
@@ -107,7 +107,7 @@ export const About: React.FC = () => {
                   </h3>
                   <div className="space-y-6 text-text-secondary leading-relaxed text-base lg:text-lg text-center">
                     <p>
-                      I&apos;m a passionate Full Stack Engineer with over {totalExperience} years of experience
+                      I&apos;m a passionate Software Engineer with over {totalExperience} years of experience
                       building scalable web applications and AI-powered solutions. Currently serving as
                       Lead Backend Engineer at Brandie, I specialize in creating robust systems that
                       handle millions of user interactions.
@@ -119,7 +119,7 @@ export const About: React.FC = () => {
                     </p>
                     <p>
                       I&apos;m particularly passionate about AI/ML technologies and have developed several
-                      AI systems including Brandie AI, which handles 7,000+ daily invocations, and
+                      AI systems including Brandie AI, which handles 7,000+ daily invocations while generating over a million engagements from users, and
                       contributed to Tars Prime, an advanced chatbot platform.
                     </p>
                   </div>
@@ -154,12 +154,12 @@ export const About: React.FC = () => {
           </div>
 
           {/* Key Highlights Grid */}
-          <div className="flex flex-col items-center justify-center w-full">
+          <div className="flex flex-col items-center justify-center w-full" style={{marginTop: '50px'}}>
             <motion.div variants={itemVariants} className="max-w-6xl mx-auto w-full">
-              <h3 className="text-2xl lg:text-3xl font-bold text-text-primary text-center mb-16 lg:mb-20">
+              <h3 className="text-2xl lg:text-3xl font-bold text-text-primary text-center mb-16 lg:mb-20" style={{marginLeft: '240px'}}>
                 Key Highlights
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center max-w-4xl mx-auto" style={{marginTop: '50px', marginLeft: '240px', marginBottom: '50px'}}>
                 {highlights.map((highlight, index) => (
                   <motion.div
                     key={highlight.title}
@@ -179,7 +179,7 @@ export const About: React.FC = () => {
                       <div className="text-xl lg:text-2xl font-bold text-primary-500 mb-3">
                         {highlight.title === 'Years of Experience' ? (
                           <AnimatedCounter end={totalExperience} suffix="+" />
-                        ) : highlight.title === 'AI/ML Projects' ? (
+                        ) : highlight.title === 'AI Projects' ? (
                           <AnimatedCounter end={10} suffix="+" />
                         ) : highlight.title === 'Impact' ? (
                           <AnimatedCounter end={1} suffix="M+" />
@@ -203,10 +203,10 @@ export const About: React.FC = () => {
               className="text-center mt-20 lg:mt-28 max-w-4xl mx-auto w-full"
               variants={itemVariants}
             >
-              <p className="text-text-secondary text-lg lg:text-xl mb-10 lg:mb-12 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-text-secondary text-lg lg:text-xl mb-10 lg:mb-12 max-w-2xl mx-auto leading-relaxed" style={{marginBottom: '50px', marginLeft: '250px', marginTop: '50px'}}>
                 Interested in working together? Let&apos;s discuss your next project.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 justify-center items-center" style={{marginLeft: '250px'}}>
                 <motion.a
                   href="#contact"
                   className="inline-flex items-center justify-center px-10 py-5 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors text-base lg:text-lg shadow-lg hover:shadow-xl"
@@ -220,6 +220,7 @@ export const About: React.FC = () => {
                   className="inline-flex items-center justify-center px-10 py-5 border border-text-muted text-text-primary rounded-lg font-medium hover:bg-background-light transition-colors text-base lg:text-lg hover:border-primary-500"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  style={{padding: '5px'}}
                 >
                   View My Work
                 </motion.a>

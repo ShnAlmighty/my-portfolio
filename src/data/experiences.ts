@@ -10,7 +10,7 @@ export const experiences: Experience[] = [
     position: 'Lead Backend Engineer',
     startDate: '2024-04',
     endDate: null,
-    location: 'India',
+    location: 'Sweden',
     description: 'Leading projects in Backend, AI, DevOps and System Design.',
     achievements: [
       'Developed a system to scrape statistics from a popular social media site, utilizing proxy services to populate a graph database with crucial data points at scale.',

@@ -73,7 +73,7 @@ export const Experience: React.FC = () => {
 
   return (
     <Section id="experience" className="bg-background-light">
-      <div className="flex flex-col items-center justify-center w-full">
+      <div className="flex flex-col items-center justify-center w-full"  style={{marginLeft: '200px'}}>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -91,7 +91,7 @@ export const Experience: React.FC = () => {
           {/* Timeline line */}
           <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-primary-600/30"></div>
 
-          <div className="space-y-12" style={{marginLeft: '270px'}}>
+          <div className="space-y-12">
             {experiences.map((experience, index) => {
               const isExpanded = expandedItems.includes(experience.id);
               const duration = calculateYearsOfExperience(experience.startDate, experience.endDate);
@@ -124,23 +124,29 @@ export const Experience: React.FC = () => {
                             {experience.position}
                           </h3>
                           <div className="flex items-center text-primary-500 font-semibold mb-2">
-                            <Briefcase size={16} className="mr-2" />
+                            <Briefcase size={16} className="mr-2" 
+                            // style={{marginBo: '10px'}} 
+                            />
                             {experience.company}
                           </div>
                           <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-text-secondary text-sm">
-                            <div className="flex items-center">
+                            <div className="flex items-center" style={{marginTop: '1px', marginBottom: '10px'}}>
                               <Calendar size={14} className="mr-1" />
                               {formatDate(experience.startDate)} - {experience.endDate ? formatDate(experience.endDate) : 'Present'}
                             </div>
-                            <span className="hidden sm:inline">•</span>
-                            <div className="flex items-center">
+                            {/* <span className="hidden sm:inline">•</span> */}
+                            <div className="flex items-center" 
+                            style={{marginLeft: '6px', marginTop: '-10px'}} 
+                            >
                               <MapPin size={14} className="mr-1" />
                               {experience.location}
                             </div>
-                            <span className="hidden sm:inline">•</span>
-                            <span className="text-primary-500 font-medium">
+                            {/* <span className="hidden sm:inline">•</span> */}
+                            {/* <span className="text-primary-500 font-medium"
+                            style={{marginLeft: '100px'}} 
+                            >
                               {duration} {duration === 1 ? 'year' : 'years'}
-                            </span>
+                            </span> */}
                           </div>
                         </div>
                         <div className="ml-4">

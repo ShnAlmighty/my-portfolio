@@ -10,11 +10,11 @@ export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://shantanupat
 
 // Default SEO configuration
 export const defaultSEO = {
-  title: `${personalInfo.name} - Full Stack Engineer & AI/ML Specialist`,
+  title: `${personalInfo.name} - Softare Engineer & AI Specialist`,
   description: personalInfo.summary,
   keywords: [
     'Full Stack Engineer',
-    'AI/ML Specialist',
+    'AI Specialist',
     'DevOps Engineer',
     'React Developer',
     'Node.js Developer',

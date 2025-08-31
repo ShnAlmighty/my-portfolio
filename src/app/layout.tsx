@@ -26,13 +26,13 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Shantanu Patnaik - Full Stack Engineer & AI/ML Specialist",
+    default: "Shantanu Patnaik - Full Stack Engineer & AI Specialist",
     template: "%s | Shantanu Patnaik"
   },
-  description: "Portfolio of Shantanu Patnaik, a Full Stack Engineer with expertise in AI/ML, DevOps, and system architecture. Currently Lead Backend Engineer at Brandie with 5+ years of experience building scalable applications.",
+  description: "Portfolio of Shantanu Patnaik, a Software Engineer with expertise in Backend, AI, DevOps, and System architecture. Currently Lead Backend Engineer at Brandie with 5+ years of experience building scalable applications.",
   keywords: [
     "Full Stack Engineer",
-    "AI/ML Specialist", 
+    "AI Specialist", 
     "DevOps Engineer",
     "React Developer",
     "Node.js Developer",
@@ -44,7 +44,6 @@ export const metadata: Metadata = {
     "Shantanu Patnaik",
     "Software Engineer",
     "Web Developer",
-    "Machine Learning",
     "Artificial Intelligence",
     "Cloud Computing"
   ],
@@ -57,15 +56,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://shantanupatnaik.dev",
-    title: "Shantanu Patnaik - Full Stack Engineer & AI/ML Specialist",
-    description: "Portfolio showcasing 5+ years of expertise in Full Stack Development, AI/ML, DevOps, and System Architecture. Currently Lead Backend Engineer at Brandie.",
+    title: "Shantanu Patnaik - Backend Engineer & AI Specialist with Full Stack experience",
+    description: "Portfolio showcasing 5+ years of expertise in Full Stack Development, AI, DevOps, and System Architecture. Currently Lead Backend Engineer at Brandie.",
     siteName: "Shantanu Patnaik Portfolio",
     images: [
       {
         url: "https://shantanupatnaik.dev/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Shantanu Patnaik - Full Stack Engineer & AI/ML Specialist"
+        alt: "Shantanu Patnaik - Backend Engineer & AI/ML Specialist"
       }
     ]
   },

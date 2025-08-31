@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-background-light py-16 sm:py-20 lg:py-24">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8" style={{marginLeft: '50px', marginBottom: '30px', marginTop: '80px'}}>
           {/* About */}
           <div>
             <h3 className="text-xl font-bold text-text-primary mb-4">
@@ -19,13 +19,14 @@ export const Footer: React.FC = () => {
             <p className="text-text-secondary mb-4 max-w-md">
               {personalInfo.summary}
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4" style={{marginTop: '20px'}}>
               <a
                 href={personalInfo.socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-text-secondary hover:text-primary-500 transition-colors"
                 aria-label="GitHub"
+                style={{marginRight: '5px'}}
               >
                 <Github size={20} />
               </a>
@@ -35,6 +36,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="text-text-secondary hover:text-primary-500 transition-colors"
                 aria-label="LinkedIn"
+                style={{marginLeft: '10px'}}
               >
                 <Linkedin size={20} />
               </a>
@@ -42,6 +44,7 @@ export const Footer: React.FC = () => {
                 href={`mailto:${personalInfo.email}`}
                 className="text-text-secondary hover:text-primary-500 transition-colors"
                 aria-label="Email"
+                style={{marginLeft: '10px'}}
               >
                 <Mail size={20} />
               </a>
@@ -51,6 +54,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="text-text-secondary hover:text-primary-500 transition-colors"
                 aria-label="Resume"
+                style={{marginLeft: '10px'}}
               >
                 <FileText size={20} />
               </a>
@@ -58,7 +62,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div style={{marginLeft: '280px'}}>
             <h3 className="text-lg font-semibold text-text-primary mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
@@ -90,10 +94,10 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Contact */}
-          <div>
+          <div style={{marginLeft: '200px'}}>
             <h3 className="text-lg font-semibold text-text-primary mb-4">Contact</h3>
             <p className="text-text-secondary mb-2">
-              <Mail size={16} className="inline-block mr-2" />
+              <Mail size={16} className="inline-block mr-20" />
               <a href={`mailto:${personalInfo.email}`} className="hover:text-primary-500 transition-colors">
                 {personalInfo.email}
               </a>
@@ -101,6 +105,10 @@ export const Footer: React.FC = () => {
             <p className="text-text-secondary">
               <span className="inline-block mr-2">📍</span>
               {personalInfo.location}
+            </p>
+            <p className="text-text-secondary">
+              <span className="inline-block mr-2">📞</span>
+              {personalInfo.phone}
             </p>
           </div>
         </div>
