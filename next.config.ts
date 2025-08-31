@@ -57,6 +57,23 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: '/(.*).(pdf)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400',
+          },
+          {
+            key: 'Content-Type',
+            value: 'application/pdf',
+          },
+          {
+            key: 'Content-Disposition',
+            value: 'inline; filename="Shantanu-Patnaik-Resume.pdf"',
+          },
+        ],
+      },
     ];
   },
 };
