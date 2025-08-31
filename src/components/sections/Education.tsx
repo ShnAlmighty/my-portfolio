@@ -72,6 +72,7 @@ export const Education: React.FC = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
+        style={{marginLeft: '300px', marginBottom: '150px'}}
       >
         <SectionTitle
           title="Education & Learning"
@@ -80,8 +81,8 @@ export const Education: React.FC = () => {
         />
 
         {/* Formal Education */}
-        <motion.div variants={itemVariants} className="mb-16">
-          <h3 className="text-2xl font-bold text-text-primary text-center mb-8">
+        <motion.div variants={itemVariants} className="mb-50">
+          <h3 className="text-2xl font-bold text-text-primary text-center mb-100">
             Formal Education
           </h3>
           
@@ -102,16 +103,16 @@ export const Education: React.FC = () => {
                     </div>
 
                     {/* Education Details */}
-                    <div className="flex-1">
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                    <div className="flex-1" style={{marginLeft: '7px'}}>
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-100">
                         <div>
-                          <h4 className="text-xl font-bold text-text-primary mb-2">
+                          <h4 className="text-xl font-bold text-text-primary mb-100" style={{marginTop: '50px'}}>
                             {edu.degree}
                           </h4>
-                          <p className="text-lg text-primary-500 font-semibold mb-2">
+                          <p className="text-lg text-primary-500 font-semibold mb-20">
                             {edu.institution}
                           </p>
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-text-secondary text-sm mb-4">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-text-secondary text-sm mb-100">
                             <div className="flex items-center">
                               <Calendar size={14} className="mr-1" />
                               {formatDate(edu.startDate)} - {formatDate(edu.endDate)}
@@ -123,18 +124,18 @@ export const Education: React.FC = () => {
                             </div>
                           </div>
                         </div>
-                        <Badge variant="primary" className="self-start">
+                        {/* <Badge variant="primary" className="self-start">
                           Bachelor&apos;s Degree
-                        </Badge>
+                        </Badge> */}
                       </div>
 
                       {/* Achievements */}
                       {edu.achievements && edu.achievements.length > 0 && (
                         <div>
-                          <h5 className="text-lg font-semibold text-text-primary mb-3">
+                          <h5 className="text-lg font-semibold text-text-primary mb-100" style={{marginTop: '50px'}}>
                             Key Highlights
                           </h5>
-                          <ul className="space-y-2">
+                          <ul className="space-y-2 mb-100" style={{marginLeft: '5px', marginTop: '20px'}}>
                             {edu.achievements.map((achievement, idx) => (
                               <li key={idx} className="flex items-start">
                                 <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
@@ -156,11 +157,11 @@ export const Education: React.FC = () => {
 
         {/* Continuous Learning */}
         <motion.div variants={itemVariants}>
-          <h3 className="text-2xl font-bold text-text-primary text-center mb-8">
+          <h3 className="text-2xl font-bold text-text-primary text-center mb-100 mt-100" style={{marginTop: '100px', marginBottom: '100px'}}>
             Continuous Learning & Development
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto" style={{marginTop: '7px'}}>
             {additionalLearning.map((item, index) => (
               <motion.div
                 key={index}
@@ -169,7 +170,7 @@ export const Education: React.FC = () => {
                 className="group"
               >
                 <Card variant="hover" className="h-full">
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-4" style={{margin: '10px'}}>
                     <div className="p-3 bg-secondary-600/20 rounded-lg text-secondary-500 group-hover:scale-110 transition-transform">
                       {item.icon}
                     </div>
@@ -200,17 +201,18 @@ export const Education: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
+          style={{marginTop: '100px', marginLeft: '200px'}}
         >
           <Card className="bg-gradient-to-r from-primary-600/10 to-secondary-600/10 border border-primary-600/20">
             <div className="flex items-center justify-center mb-4">
-              <div className="p-4 bg-primary-600/20 rounded-full">
+              <div className="p-4 bg-primary-600/20 rounded-full" style={{marginTop: '20px'}}>
                 <BookOpen size={32} className="text-primary-500" />
               </div>
             </div>
-            <h4 className="text-xl font-bold text-text-primary mb-4">
+            <h4 className="text-xl font-bold text-text-primary mb-10" style={{marginTop: '20px', marginBottom: '20px'}}>
               Learning Philosophy
             </h4>
-            <p className="text-text-secondary leading-relaxed">
+            <p className="text-text-secondary leading-relaxed" style={{margin: '30px'}}>
               I believe in continuous learning and staying updated with the latest technologies. 
               My education provided a strong foundation in computer science fundamentals, while 
               my professional experience has been my greatest teacher. I&apos;m always exploring 
@@ -228,7 +230,7 @@ export const Education: React.FC = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8" style={{marginRight: '90px', marginTop: '70px'}}>
             <div>
               <div className="text-3xl font-bold text-primary-500 mb-2">
                 4

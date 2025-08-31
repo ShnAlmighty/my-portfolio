@@ -89,16 +89,18 @@ export const Projects: React.FC = () => {
       <Section id="projects">
         <div className="flex flex-col items-center justify-center w-full">
           <div className="max-w-7xl mx-auto w-full">
-            <SectionTitle
-              title="Featured Projects"
-              subtitle="A showcase of my work in AI/ML, full-stack development, IoT, and automation"
-              align="center"
-            />
+            <div className="mb-12 mt-8">
+              <SectionTitle
+                title="Featured Projects"
+                subtitle="A showcase of my work in AI/ML, full-stack development, IoT, and automation"
+                align="center"
+              />
+            </div>
             <DataFallback
               type="empty"
               title="No Projects Available"
               message="Projects are currently being updated. Please check back soon!"
-              className="min-h-[400px]"
+              className="min-h-[400px] my-12"
             />
           </div>
         </div>
@@ -126,15 +128,17 @@ export const Projects: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             className="max-w-7xl mx-auto w-full"
           >
-          <SectionTitle
-            title="Featured Projects"
-            subtitle="A showcase of my work in AI/ML, full-stack development, IoT, and automation"
-            align="center"
-          />
+          <div className="mb-12">
+            <SectionTitle
+              title="Featured Projects"
+              subtitle="A showcase of my work in AI/ML, full-stack development, IoT, and automation"
+              align="center"
+            />
+          </div>
 
         {/* Category Filter */}
         <motion.div 
-          className="flex flex-wrap justify-center gap-3 mb-16 max-w-4xl mx-auto"
+          className="flex flex-wrap justify-center gap-3 mb-20 mt-8 max-w-4xl mx-auto"
           variants={itemVariants}
         >
           {categories.map((category) => (
@@ -162,7 +166,7 @@ export const Projects: React.FC = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -175,9 +179,9 @@ export const Projects: React.FC = () => {
                 layout
                 className="group"
               >
-                <Card variant="hover" className="h-full flex flex-col">
+                <Card variant="hover" className="h-full flex flex-col my-4">
                   {/* Project Header */}
-                  <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-start justify-between mb-6 mt-2">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
                         <h3 className="text-xl font-bold text-text-primary group-hover:text-primary-500 transition-colors">
@@ -201,12 +205,12 @@ export const Projects: React.FC = () => {
                   </div>
 
                   {/* Project Description */}
-                  <p className="text-text-secondary leading-relaxed mb-6 flex-1">
+                  <p className="text-text-secondary leading-relaxed mb-8 flex-1">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
-                  <div className="mb-6">
+                  <div className="mb-8 mt-4">
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, idx) => (
                         <Badge key={idx} variant="outline" size="sm">
@@ -217,7 +221,7 @@ export const Projects: React.FC = () => {
                   </div>
 
                   {/* Project Links */}
-                  <div className="flex items-center gap-3 mt-auto">
+                  <div className="flex items-center gap-3 mt-auto pt-4">
                     {project.githubUrl && (
                       <Button
                         href={project.githubUrl}
@@ -257,7 +261,7 @@ export const Projects: React.FC = () => {
         {/* Show More/Less Button */}
         {filteredProjects.length > 6 && (
           <motion.div 
-            className="text-center mt-16"
+            className="text-center mt-20 mb-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -274,39 +278,39 @@ export const Projects: React.FC = () => {
 
         {/* Project Stats */}
         <motion.div 
-          className="mt-20 text-center max-w-4xl mx-auto"
+          className="mt-24 mb-12 text-center max-w-4xl mx-auto py-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
-            <div>
-              <div className="text-3xl font-bold text-primary-500 mb-2">
+            <div className="py-4">
+              <div className="text-3xl font-bold text-primary-500 mb-3">
                 {projects.length}
               </div>
               <div className="text-text-secondary text-sm">
                 Total Projects
               </div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-500 mb-2">
+            <div className="py-4">
+              <div className="text-3xl font-bold text-primary-500 mb-3">
                 {projects.filter(p => p.featured).length}
               </div>
               <div className="text-text-secondary text-sm">
                 Featured Projects
               </div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-500 mb-2">
+            <div className="py-4">
+              <div className="text-3xl font-bold text-primary-500 mb-3">
                 {projects.filter(p => p.category === 'ai-ml').length}
               </div>
               <div className="text-text-secondary text-sm">
                 AI/ML Projects
               </div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-500 mb-2">
+            <div className="py-4">
+              <div className="text-3xl font-bold text-primary-500 mb-3">
                 {new Set(projects.flatMap(p => p.technologies)).size}
               </div>
               <div className="text-text-secondary text-sm">
@@ -318,13 +322,13 @@ export const Projects: React.FC = () => {
 
         {/* Call to Action */}
         <motion.div 
-          className="text-center mt-16 max-w-2xl mx-auto"
+          className="text-center mt-20 mb-8 max-w-2xl mx-auto py-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <p className="text-text-secondary mb-6">
+          <p className="text-text-secondary mb-8 mt-4">
             Interested in collaborating on a project?
           </p>
           <Button

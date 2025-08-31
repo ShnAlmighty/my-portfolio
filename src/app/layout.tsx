@@ -69,12 +69,12 @@ export const metadata: Metadata = {
       }
     ]
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Shantanu Patnaik - Full Stack Engineer & AI/ML Specialist",
-    description: "Portfolio showcasing expertise in Full Stack Development, AI/ML, DevOps, and System Architecture.",
-    images: ["https://shantanupatnaik.dev/og-image.jpg"]
-  },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: "Shantanu Patnaik - Full Stack Engineer & AI/ML Specialist",
+  //   description: "Portfolio showcasing expertise in Full Stack Development, AI/ML, DevOps, and System Architecture.",
+  //   images: ["https://shantanupatnaik.dev/og-image.jpg"]
+  // },
   robots: {
     index: true,
     follow: true,

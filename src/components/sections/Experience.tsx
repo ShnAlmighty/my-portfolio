@@ -91,7 +91,7 @@ export const Experience: React.FC = () => {
           {/* Timeline line */}
           <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-primary-600/30"></div>
 
-          <div className="space-y-12">
+          <div className="space-y-12" style={{marginLeft: '270px'}}>
             {experiences.map((experience, index) => {
               const isExpanded = expandedItems.includes(experience.id);
               const duration = calculateYearsOfExperience(experience.startDate, experience.endDate);
@@ -168,7 +168,7 @@ export const Experience: React.FC = () => {
                       <AnimatePresence mode="wait">
                         {isExpanded && (
                           <motion.div
-                            variants={contentVariants}
+                            // variants={contentVariants}
                             initial="hidden"
                             animate="visible"
                             exit="exit"

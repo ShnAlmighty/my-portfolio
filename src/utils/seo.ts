@@ -44,8 +44,8 @@ export const defaultSEO = {
   language: 'en',
   type: 'website',
   siteName: `${personalInfo.name} Portfolio`,
-  locale: 'en_US',
-  twitterHandle: '@shantanupatnaik', // Update with actual handle if available
+  locale: 'en_US'
+  // twitterHandle: '@shantanupatnaik', // Update with actual handle if available
 };
 
 // Generate structured data for person
@@ -145,19 +145,19 @@ export const generateOpenGraphMetadata = (
 };
 
 // Generate Twitter metadata
-export const generateTwitterMetadata = (
-  title?: string,
-  description?: string
-) => {
-  return {
-    card: 'summary_large_image',
-    site: defaultSEO.twitterHandle,
-    creator: defaultSEO.twitterHandle,
-    title: title || defaultSEO.title,
-    description: description || defaultSEO.description,
-    images: [`${BASE_URL}/og-image.jpg`],
-  };
-};
+// export const generateTwitterMetadata = (
+//   title?: string,
+//   description?: string
+// ) => {
+//   return {
+//     card: 'summary_large_image',
+//     site: defaultSEO.twitterHandle,
+//     creator: defaultSEO.twitterHandle,
+//     title: title || defaultSEO.title,
+//     description: description || defaultSEO.description,
+//     images: [`${BASE_URL}/og-image.jpg`],
+//   };
+// };
 
 // Generate complete metadata for a page
 export const generatePageMetadata = (
@@ -189,7 +189,7 @@ export const generatePageMetadata = (
       },
     },
     openGraph: generateOpenGraphMetadata(pageTitle, pageDescription, path),
-    twitter: generateTwitterMetadata(pageTitle, pageDescription),
+    // twitter: generateTwitterMetadata(pageTitle, pageDescription),
     alternates: {
       canonical: path ? `${BASE_URL}${path}` : BASE_URL,
     },

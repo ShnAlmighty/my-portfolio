@@ -187,7 +187,7 @@ export const Contact: React.FC = () => {
           align="center"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto" style={{marginLeft: '150px'}}>
           {/* Contact Information */}
           <motion.div variants={itemVariants}>
             <Card className="h-full">
@@ -282,7 +282,7 @@ export const Contact: React.FC = () => {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} style={{marginLeft: '400px', width: '500px'}}>
             <Card>
               <h3 className="text-2xl font-bold text-text-primary mb-6">
                 Send a Message
@@ -417,10 +417,10 @@ export const Contact: React.FC = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <p className="text-text-secondary mb-6">
+          <p className="text-text-secondary mb-6" style={{marginLeft: '200px', marginTop: '10px', marginBottom: '50px'}}>
             Prefer a quick chat? Schedule a call or send me a direct message.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center" style={{marginLeft: '200px'}}>
             <Button
               href={`mailto:${personalInfo.email}?subject=Let's Connect`}
               variant="ghost"

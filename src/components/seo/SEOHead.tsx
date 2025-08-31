@@ -48,10 +48,10 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       {image && <meta property="og:image" content={image} />}
       
       {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
+      {/* <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={metaTags.title as string} />
       <meta name="twitter:description" content={metaTags.description as string} />
-      {image && <meta name="twitter:image" content={image} />}
+      {image && <meta name="twitter:image" content={image} />} */}
       
       {/* Additional SEO Tags */}
       <meta name="author" content="Shantanu Patnaik" />

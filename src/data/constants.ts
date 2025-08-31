@@ -27,10 +27,10 @@ export const CONTACT_INFO = {
 
 // Social media links
 export const SOCIAL_LINKS = {
-  GITHUB: 'https://github.com/shantanupatnaik',
-  LINKEDIN: 'https://linkedin.com/in/shantanupatnaik',
-  STACKOVERFLOW: 'https://stackoverflow.com/users/shantanupatnaik',
-  TWITTER: 'https://twitter.com/shantanupatnaik',
+  GITHUB: 'https://github.com/ShnAlmighty',
+  LINKEDIN: 'https://www.linkedin.com/in/shantanu-patnaik-9a6345178',
+  STACKOVERFLOW: 'https://stackoverflow.com/users/12615599/shnalmighty',
+  // TWITTER: 'NA',
   EMAIL: 'mailto:patnaikshantanu@gmail.com',
 } as const;
 

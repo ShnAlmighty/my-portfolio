@@ -113,7 +113,7 @@ export const Skills: React.FC = () => {
         <SectionTitle
           title="Technical Skills"
           subtitle="Technologies and tools I use to bring ideas to life"
-          align="center"
+          align="right"
         />
         <DataFallback
           type="empty"
@@ -142,6 +142,7 @@ export const Skills: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
+          style={{marginLeft: '250px', marginBottom: '150px'}}
         >
           <SectionTitle
             title="Technical Skills"
@@ -157,7 +158,7 @@ export const Skills: React.FC = () => {
               Current Expertise
             </h3>
           </div>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-3 mr-80">
             {trendingSkills.map((skill, index) => (
               <motion.div
                 key={skill.name}
