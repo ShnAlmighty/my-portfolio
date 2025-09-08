@@ -20,6 +20,7 @@ export const experiences: Experience[] = [
       'Developed additional features for the Brandie AI System, including autonomous campaign creation, caption generation, and curated post capabilities, utilized by both users and administrators, collectively achieving over 1 million engagements.',
       'Formulated and executed a database migration strategy that averted a 300% surge in database expenses and significantly enhanced system-wide query performance.',
       'Directed infrastructure enhancements for media asset delivery services, leading to a 50% reduction in operational costs while accommodating significant growth in user engagement and an expanding user base.',
+      'Spearheaded cloud infrastructure migration planning, transitioning critical resources from AWS to Google Cloud Platform.',
     ],
     technologies: ['Backend Development', 'AI', 'DevOps', 'System Design', 'Graph Database', 'Monitoring', 'Logging', 'Load Balancing', 'Caching', 'New Relic', 'Prompt Engineering', 'Vector Database'],
     type: 'fulltime',
