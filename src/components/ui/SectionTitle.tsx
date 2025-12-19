@@ -53,7 +53,7 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
   titleStyle = {marginLeft: '300px', marginTop: '60px', marginBottom: '60px'}
 
   if(title == 'Featured Projects'){
-    titleStyle = {marginLeft: '280px', marginTop: '200px', marginBottom: '60px'};
+    titleStyle = {marginLeft: '278px', marginTop: '200px', marginBottom: '60px'};
   }
   if(title == 'Professional Experience'){
     titleStyle = {marginRight: '150px', marginTop: '200px', marginBottom: '60px'};
@@ -62,7 +62,7 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
     titleStyle = {marginLeft: '260px', marginTop: '150px', marginBottom: '60px'};
   }
   if(title == 'Technical Skills'){
-    titleStyle = {marginLeft: '5px', marginTop: '150px', marginBottom: '60px'};
+    titleStyle = {marginLeft: '4px', marginTop: '150px', marginBottom: '60px'};
   }
   if(title == 'Education & Learning'){
     titleStyle = {marginRight: '90px', marginTop: '150px', marginBottom: '60px'};
